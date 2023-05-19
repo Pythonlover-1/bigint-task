@@ -134,6 +134,42 @@ TEST(correctness, comparisons) {
   EXPECT_TRUE(d != 0);
 }
 
+TEST(correctness, signed_comparisons) {
+  big_integer a = 100;
+  big_integer b = -100;
+
+  EXPECT_FALSE(a == b);
+  EXPECT_TRUE(a != b);
+  EXPECT_FALSE(a < b);
+  EXPECT_FALSE(a <= b);
+  EXPECT_TRUE(a > b);
+  EXPECT_TRUE(a >= b);
+}
+
+TEST(correctness, signed_comparisons_complement_32) {
+  big_integer a = -100;
+  big_integer b = 4294967196; // (1 << 32) - 100
+
+  EXPECT_FALSE(a == b);
+  EXPECT_TRUE(a != b);
+  EXPECT_TRUE(a < b);
+  EXPECT_TRUE(a <= b);
+  EXPECT_FALSE(a > b);
+  EXPECT_FALSE(a >= b);
+}
+
+TEST(correctness, signed_comparisons_complement_64) {
+  big_integer a = -100;
+  big_integer b = 18446744073709551516u; // (1 << 64) - 100
+
+  EXPECT_FALSE(a == b);
+  EXPECT_TRUE(a != b);
+  EXPECT_TRUE(a < b);
+  EXPECT_TRUE(a <= b);
+  EXPECT_FALSE(a > b);
+  EXPECT_FALSE(a >= b);
+}
+
 TEST(correctness, compare_zero_and_minus_zero) {
   big_integer a;
   big_integer b = -a;
