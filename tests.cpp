@@ -323,6 +323,15 @@ TEST(correctness, increment) {
   EXPECT_EQ(43, post);
 }
 
+TEST(correctness, to_zero_inc) {
+  big_integer a = -1;
+  big_integer pre_a = ++a;
+  big_integer post_a = a++;
+  
+  EXPECT_EQ(0, pre_a);
+  EXPECT_EQ(0, post_a);
+}
+
 TEST(correctness, decrement) {
   big_integer a = 42;
   big_integer pre = --a;
@@ -330,6 +339,15 @@ TEST(correctness, decrement) {
 
   EXPECT_EQ(41, pre);
   EXPECT_EQ(41, post);
+}
+
+TEST(correctness, from_zero_dec) {
+  big_integer a;
+  big_integer pre_a = --a;
+  big_integer post_a = a--;
+
+  EXPECT_EQ(-1, pre_a);
+  EXPECT_EQ(-1, post_a);
 }
 
 TEST(correctness, and_) {
