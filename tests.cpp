@@ -327,7 +327,7 @@ TEST(correctness, to_zero_inc) {
   big_integer a = -1;
   big_integer pre_a = ++a;
   big_integer post_a = a++;
-  
+
   EXPECT_EQ(0, pre_a);
   EXPECT_EQ(0, post_a);
 }
