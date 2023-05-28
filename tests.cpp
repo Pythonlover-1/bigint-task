@@ -177,6 +177,16 @@ TEST(correctness, compare_zero_and_minus_zero) {
   EXPECT_TRUE(a == b);
 }
 
+TEST(correctness, compare_negative_and_negative) {
+  big_integer a = -100;
+  big_integer b = -100;
+
+  EXPECT_FALSE(a < b);
+  EXPECT_FALSE(a > b);
+  EXPECT_TRUE(a >= b);
+  EXPECT_TRUE(a <= b);
+}
+
 TEST(correctness, add) {
   big_integer a = 5;
   big_integer b = 20;
