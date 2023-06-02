@@ -360,6 +360,22 @@ TEST(correctness, negation_int_min) {
   EXPECT_EQ(b - 1, std::numeric_limits<int>::max());
 }
 
+TEST(correctness, minus_zero) {
+  big_integer a = -100;
+  big_integer b = a * 0;
+  big_integer c = a / 1000;
+  big_integer d = a + -a;
+  big_integer e = a - a;
+  EXPECT_EQ(to_string(b), "0");
+  EXPECT_TRUE(b == 0);
+  EXPECT_EQ(to_string(c), "0");
+  EXPECT_TRUE(c == 0);
+  EXPECT_EQ(to_string(d), "0");
+  EXPECT_TRUE(d == 0);
+  EXPECT_EQ(to_string(e), "0");
+  EXPECT_TRUE(e == 0);
+}
+
 TEST(correctness, increment) {
   big_integer a = 42;
   big_integer pre = ++a;
