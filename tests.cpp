@@ -366,7 +366,7 @@ TEST(correctness, negative_zero) {
   big_integer c = a / 1000;
   big_integer d = a + -a;
   big_integer e = a - a;
-  
+
   EXPECT_EQ(to_string(b), "0");
   EXPECT_TRUE(b == 0);
   EXPECT_EQ(to_string(c), "0");
