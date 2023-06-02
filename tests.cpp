@@ -170,7 +170,7 @@ TEST(correctness, signed_comparisons_complement_64) {
   EXPECT_FALSE(a >= b);
 }
 
-TEST(correctness, compare_zero_and_minus_zero) {
+TEST(correctness, compare_zero_and_negative_zero) {
   big_integer a;
   big_integer b = -a;
 
@@ -360,12 +360,13 @@ TEST(correctness, negation_int_min) {
   EXPECT_EQ(b - 1, std::numeric_limits<int>::max());
 }
 
-TEST(correctness, minus_zero) {
+TEST(correctness, negative_zero) {
   big_integer a = -100;
   big_integer b = a * 0;
   big_integer c = a / 1000;
   big_integer d = a + -a;
   big_integer e = a - a;
+  
   EXPECT_EQ(to_string(b), "0");
   EXPECT_TRUE(b == 0);
   EXPECT_EQ(to_string(c), "0");
