@@ -513,7 +513,16 @@ TEST(correctness, not_) {
   big_integer a = 0xaa;
   big_integer b = ~a;
   big_integer c = (-a - 1);
-  EXPECT_TRUE(~a == (-a - 1));
+  EXPECT_TRUE(b == c);
+}
+
+TEST(correctness, not_zero) {
+  big_integer a;
+  big_integer b = ~a;
+  big_integer c = -1;
+  big_integer d = ~b;
+  EXPECT_TRUE(b == c);
+  EXPECT_TRUE(a == d);
 }
 
 TEST(correctness, shl_) {
